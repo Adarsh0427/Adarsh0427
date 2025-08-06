@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "name": "Adarsh Singh",
+    "username": "Adarsh0427",
+    "email": "adarshsingh0427@gmail.com",
+    "location": "India",
+    "university": "IIIT Sri City",
+    "degree": "Computer Science",
+    "year": "Final-year"
+  },
+  "social": {
+    "github": "https://github.com/Adarsh0427",
+    "linkedin": "#",
+    "email": "adarshsingh0427@gmail.com"
+  },
+  "technologies": {
+    "languages": ["Python", "JavaScript", "C++"],
+    "backend": ["FastAPI", "Node.js", "Express.js"],
+    "databases": ["PostgreSQL", "MongoDB"],
+    "aiml": ["LangChain", "OpenAI API", "OCR (Tesseract)", "Vector DBs (FAISS)"],
+    "devops": ["Docker", "Git", "CI/CD basics"],
+    "others": ["REST APIs", "gRPC", "Microservices", "Kafka"]
+  },
+  "projects": [
+    {
+      "name": "AI-powered Document Processing System",
+      "description": "OCR + OpenAI embeddings + FastAPI → Automates document classification, metadata extraction, and semantic search.",
+      "url": ""
+    },
+    {
+      "name": "Webhook-based Workflow Automation Platform",
+      "description": "Node.js + Kafka + PostgreSQL → Event-driven architecture for automated real-time workflows.",
+      "url": "https://github.com/Adarsh0427/casket_0427"
+    },
+    {
+      "name": "Video Steganography Tool",
+      "description": "Python + PyQt5 → Hides secret data inside videos using multiple steganography techniques.",
+      "url": "https://github.com/Adarsh0427/video_steganography"
+    }
+  ],
+  "theme": {
+    "primary": "radical",
+    "badge_style": "for-the-badge",
+    "stats_height": "180"
+  }
+}
