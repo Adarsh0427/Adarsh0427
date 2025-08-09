@@ -77,15 +77,7 @@
 - 🤔 I'm looking for help with **System design and scalable architecture patterns**
 - 💬 Ask me about **Python, FastAPI, AI/ML, and Backend development**
 - ⚡ Fun fact: **I love solving complex algorithmic problems and building efficient systems**
-
----
-
-### 📈 Contribution Graph
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Adarsh0427&theme=radical" alt="Contribution Graph"/>
-</p>
-
+  
 ---
 
 ### 📫 Let's Connect
