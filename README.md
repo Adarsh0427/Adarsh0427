@@ -69,17 +69,6 @@
 
 ---
 
-### 🎯 Current Focus
-
-- 🔭 I'm currently working on **AI/ML projects and Backend development**
-- 🌱 I'm currently learning **Advanced Docker, Kubernetes, and cloud architectures**
-- 👯 I'm looking to collaborate on **Open source projects and innovative tech solutions**
-- 🤔 I'm looking for help with **System design and scalable architecture patterns**
-- 💬 Ask me about **Python, FastAPI, AI/ML, and Backend development**
-- ⚡ Fun fact: **I love solving complex algorithmic problems and building efficient systems**
-  
----
-
 ### 📫 Let's Connect
 
 <p align="center">
