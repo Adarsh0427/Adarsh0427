@@ -2,7 +2,6 @@
 
 <h1 align="center">Hi there 👋, I'm Adarsh Singh</h1>
 <p align="center">
-  🎓 Final-year Computer Science Undergraduate at <b>IIIT Sri City</b><br>
   💻 Open-Source Contributor at <b>GSSOC 2025</b><br>
   📍 Currently seeking <b>Backend, AI/ML, and Full-Stack internship opportunities</b>
 </p>
