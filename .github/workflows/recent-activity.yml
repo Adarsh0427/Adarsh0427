@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Update Recent Activity
-        uses: Readme-Workflows/recent-activity@latest
+        uses: readme-Workflows/recent-activity@v2.6.2
         with:
           GH_USERNAME: Adarsh0427
           MAX_LINES: 5  # Number of recent PRs to show
