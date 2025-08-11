@@ -2,27 +2,17 @@ name: Update Recent Activity
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # Runs every 12 hours
-  workflow_dispatch: # Allows manual trigger
+    - cron: '*/30 * * * *'  # run every 30 minutes (adjust as needed)
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+    permissions:
+      contents: write
 
-      - name: Update Recent Activity
-        uses: readme-Workflows/recent-activity@v2.6.2
-        with:
-          GH_USERNAME: Adarsh0427
-          MAX_LINES: 5  # Number of recent PRs to show
+    steps:
+      - uses: actions/checkout@v3
+      - uses: jamesgeorge007/github-activity-readme@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Commit and Push Changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: GitHub Action
-          author_email: actions@github.com
-          message: 'Updated recent activity in README'
