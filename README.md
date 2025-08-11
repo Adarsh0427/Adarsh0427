@@ -40,11 +40,11 @@
 <!--END_SECTION:activity-->
 
 ### 🤝 Organisations I’ve Contributed To
+[![OWASP](https://img.shields.io/badge/OWASP-Organization-blue?logo=owasp)](https://github.com/OWASP)
 <!--START_SECTION:orgs-->
 - [OWASP](https://github.com/OWASP)
 - [VublleCodeHub8](https://github.com/VublleCodeHub8)
 <!--END_SECTION:orgs-->
-
 ---
 
 ### 📫 Connect With Me
