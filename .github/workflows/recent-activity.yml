@@ -1,4 +1,4 @@
-name: Update PR Activity
+name: Update PR Activity and Organisations
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-prs:
+  update-prs-and-orgs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch open and merged PRs
+      - name: Fetch PRs and Organisations
         run: |
           python3 << 'EOF'
           import requests, os, re
@@ -26,37 +26,46 @@ jobs:
 
           def fetch_prs(state):
               query = f"type:pr+author:{username}+is:{state}"
-              url = f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=5"
+              url = f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=10"
               return requests.get(url, headers=headers).json().get("items", [])
 
           open_prs = fetch_prs("open")
           merged_prs = fetch_prs("merged")
 
           all_prs = open_prs + merged_prs
-          # Sort by updated_at
           all_prs.sort(key=lambda x: x["updated_at"], reverse=True)
 
           pr_lines = []
-          for item in all_prs[:6]:  # limit to 6 PRs
+          orgs = set()
+
+          for item in all_prs[:8]:  # Show top 8 PRs
               title = item["title"]
               number = item["number"]
-              repo = "/".join(item["repository_url"].split("/")[-2:])
+              repo_parts = item["repository_url"].split("/")[-2:]
+              repo = "/".join(repo_parts)
               pr_url = item["html_url"]
+              orgs.add(repo_parts[0])  # Add org name
               state_icon = "🟢 Open" if item["state"] == "open" else "🎉 Merged"
               pr_lines.append(f"- {state_icon} PR [#{number}]({pr_url}) in `{repo}` — {title}")
 
-          # Read README
+          # Format org list
+          org_lines = sorted(orgs)
+          org_links = [f"- [{o}](https://github.com/{o})" for o in org_lines]
+
+          # Update README sections
           with open("README.md", "r") as f:
               readme = f.read()
 
-          # Replace section
-          new_section = "\n".join(pr_lines) if pr_lines else "No recent PRs."
-          updated = re.sub(
-              r"<!--START_SECTION:activity-->.*<!--END_SECTION:activity-->",
-              f"<!--START_SECTION:activity-->\n{new_section}\n<!--END_SECTION:activity-->",
-              readme,
-              flags=re.DOTALL
-          )
+          def replace_section(content, marker, new_text):
+              return re.sub(
+                  rf"<!--START_SECTION:{marker}-->.*<!--END_SECTION:{marker}-->",
+                  f"<!--START_SECTION:{marker}-->\n{new_text}\n<!--END_SECTION:{marker}-->",
+                  content,
+                  flags=re.DOTALL
+              )
+
+          updated = replace_section(readme, "activity", "\n".join(pr_lines) if pr_lines else "No recent PRs.")
+          updated = replace_section(updated, "orgs", "\n".join(org_links) if org_links else "No recent organisations.")
 
           with open("README.md", "w") as f:
               f.write(updated)
@@ -69,4 +78,4 @@ jobs:
         with:
           author_name: GitHub Action
           author_email: actions@github.com
-          message: "Update recent PR activity"
+          message: "Update recent PRs and organisations"
