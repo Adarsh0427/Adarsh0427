@@ -29,7 +29,6 @@
 
 ### 📌 Recent Merged Pull Requests
 <!--START_SECTION:activity-->
-<!-- This will be automatically updated via GitHub Action -->
 <!--END_SECTION:activity-->
 
 ---
