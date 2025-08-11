@@ -1,18 +1,72 @@
-name: Update Recent Activity
+name: Update PR Activity
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # run every 30 minutes (adjust as needed)
+    - cron: '0 0 * * *' # Runs daily at midnight
   workflow_dispatch:
 
 jobs:
-  build:
+  update-prs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: jamesgeorge007/github-activity-readme@master
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch open and merged PRs
+        run: |
+          python3 << 'EOF'
+          import requests, os, re
+
+          username = "Adarsh0427"
+          token = os.getenv("GITHUB_TOKEN")
+          headers = {"Authorization": f"token {token}"}
+
+          def fetch_prs(state):
+              query = f"type:pr+author:{username}+is:{state}"
+              url = f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=5"
+              return requests.get(url, headers=headers).json().get("items", [])
+
+          open_prs = fetch_prs("open")
+          merged_prs = fetch_prs("merged")
+
+          all_prs = open_prs + merged_prs
+          # Sort by updated_at
+          all_prs.sort(key=lambda x: x["updated_at"], reverse=True)
+
+          pr_lines = []
+          for item in all_prs[:6]:  # limit to 6 PRs
+              title = item["title"]
+              number = item["number"]
+              repo = "/".join(item["repository_url"].split("/")[-2:])
+              pr_url = item["html_url"]
+              state_icon = "🟢 Open" if item["state"] == "open" else "🎉 Merged"
+              pr_lines.append(f"- {state_icon} PR [#{number}]({pr_url}) in `{repo}` — {title}")
+
+          # Read README
+          with open("README.md", "r") as f:
+              readme = f.read()
+
+          # Replace section
+          new_section = "\n".join(pr_lines) if pr_lines else "No recent PRs."
+          updated = re.sub(
+              r"<!--START_SECTION:activity-->.*<!--END_SECTION:activity-->",
+              f"<!--START_SECTION:activity-->\n{new_section}\n<!--END_SECTION:activity-->",
+              readme,
+              flags=re.DOTALL
+          )
+
+          with open("README.md", "w") as f:
+              f.write(updated)
+          EOF
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Action
+          author_email: actions@github.com
+          message: "Update recent PR activity"
