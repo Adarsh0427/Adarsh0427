@@ -29,6 +29,7 @@
 
 ### 📌 Recent PR Activity
 <!--START_SECTION:activity-->
+- 🟢 Open PR [#2114](https://github.com/OWASP/Nest/pull/2114) in `OWASP/Nest` — Implement Initial Query Parser for Search Interfaces
 - 🎉 Merged PR [#2023](https://github.com/OWASP/Nest/pull/2023) in `OWASP/Nest` — Test: added unit tests for SearchBar Component (#1886)
 - 🟢 Open PR [#28](https://github.com/VublleCodeHub8/Main-Progress/pull/28) in `VublleCodeHub8/Main-Progress` — Test/testcases
 - 🎉 Merged PR [#24](https://github.com/VublleCodeHub8/Main-Progress/pull/24) in `VublleCodeHub8/Main-Progress` — enhanced more features and improved ui
@@ -36,7 +37,6 @@
 - 🎉 Merged PR [#15](https://github.com/VublleCodeHub8/Main-Progress/pull/15) in `VublleCodeHub8/Main-Progress` — changed total user bill
 - 🎉 Merged PR [#13](https://github.com/VublleCodeHub8/Main-Progress/pull/13) in `VublleCodeHub8/Main-Progress` —  minor
 - 🎉 Merged PR [#11](https://github.com/VublleCodeHub8/Main-Progress/pull/11) in `VublleCodeHub8/Main-Progress` — Feat/userbill
-- 🎉 Merged PR [#9](https://github.com/VublleCodeHub8/Main-Progress/pull/9) in `VublleCodeHub8/Main-Progress` — user bill generation
 <!--END_SECTION:activity-->
 
 ### 🤝 Organisations I’ve Contributed To
