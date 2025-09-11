@@ -29,7 +29,7 @@
 
 ### 📌 Recent PR Activity
 <!--START_SECTION:activity-->
-- 🟢 Open PR [#2114](https://github.com/OWASP/Nest/pull/2114) in `OWASP/Nest` — Implemented Initial Query Parser for Search Interfaces
+- 🎉 Merged PR [#2114](https://github.com/OWASP/Nest/pull/2114) in `OWASP/Nest` — Implemented Initial Query Parser for Search Interfaces
 - 🎉 Merged PR [#2180](https://github.com/OWASP/Nest/pull/2180) in `OWASP/Nest` — Fixed SortBy component test cases #2173
 - 🎉 Merged PR [#2023](https://github.com/OWASP/Nest/pull/2023) in `OWASP/Nest` — Test: added unit tests for SearchBar Component (#1886)
 - 🟢 Open PR [#28](https://github.com/VublleCodeHub8/Main-Progress/pull/28) in `VublleCodeHub8/Main-Progress` — Test/testcases
