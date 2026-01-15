@@ -1,6 +1,6 @@
 <h1 align="center">Hi, I'm Adarsh Singh 👋</h1>
 <p align="center">
-  Open-Source Contributor @ <b>GSSOC 2025</b> | Backend & AI/ML Developer | Building Scalable Systems
+  Open-Source Contributor
 </p>
 
 ---
