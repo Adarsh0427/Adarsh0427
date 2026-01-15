@@ -8,7 +8,6 @@
 ### 🚀 About Me
 - 💻 Passionate about building backend systems, AI-driven tools, and automation platforms.
 - 📍 Actively contributing to **OWASP Nest** & other open-source projects.
-- 🔍 Looking for **Backend / AI-ML / Full-Stack internships**.
 
 ---
 
